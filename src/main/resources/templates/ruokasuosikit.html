@@ -55,8 +55,8 @@
 	 			<td th:text="${ravintola.sijainti}"></td>
 	 			<td th:text="${ravintola.arvosana}"></td>
 	 			<td th:text="${ravintola.ravintolaNimi}"></td>
- 				<td><a th:href="@{/poistaravintola/{id}(id=${ravintola.ravintolaId})}">Delete</a></td>
- 				<td><a th:href="@{/muokkaaravintola/{id}(id=${ravintola.ravintolaId})}">Edit</a></td>
+ 				<td sec:authorize="hasAuthority('ADMIN')"><a th:href="@{/poistaravintola/{id}(id=${ravintola.ravintolaId})}">Delete</a></td>
+ 				<td sec:authorize="hasAuthority('ADMIN')"><a th:href="@{/muokkaaravintola/{id}(id=${ravintola.ravintolaId})}">Edit</a></td>
  				<td><a th:href="@{/ravintola/{id}(id=${ravintola.ravintolaId})}">JSON</a></td>
 	 		</tr>
 	 		<tr id="toiminnot">
