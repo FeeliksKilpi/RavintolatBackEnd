@@ -10,15 +10,15 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.harjoitustyo.domain.SignupForm;
-import com.harjoitustyo.domain.User;
-import com.harjoitustyo.domain.UserRepository;
+import com.harjoitustyo.domain.UserCred;
+import com.harjoitustyo.domain.UserCredRepository;
 
 import javax.validation.Valid;
 
 @Controller
 public class UserController {
 	@Autowired
-    private UserRepository userepository; 
+    private UserCredRepository userepository; 
 	
     @RequestMapping(value = "signup")
     public String addStudent(Model model){
@@ -43,7 +43,7 @@ public class UserController {
 		    	BCryptPasswordEncoder bc = new BCryptPasswordEncoder();
 		    	String hashPwd = bc.encode(pwd);
 	
-		    	User newUser = new User();
+		    	UserCred newUser = new UserCred();
 		    	newUser.setPasswordHash(hashPwd);
 		    	newUser.setUsername(signupForm.getUsername());
 		    	newUser.setRole("USER");

@@ -12,8 +12,8 @@ import com.harjoitustyo.domain.Ravintola;
 import com.harjoitustyo.domain.RavintolaRepository;
 import com.harjoitustyo.domain.Ruoka;
 import com.harjoitustyo.domain.RuokaRepository;
-import com.harjoitustyo.domain.User;
-import com.harjoitustyo.domain.UserRepository;
+import com.harjoitustyo.domain.UserCred;
+import com.harjoitustyo.domain.UserCredRepository;
 
 
 
@@ -26,7 +26,7 @@ public class HarjoitustyoApplication {
 			
 	}
 	@Bean
-	public CommandLineRunner ruokasuosikit(RuokaRepository rrepository, RavintolaRepository ravrepository, UserRepository urepository) {
+	public CommandLineRunner ruokasuosikit(RuokaRepository rrepository, RavintolaRepository ravrepository, UserCredRepository urepository) {
 		return (args) -> {
 			
 			ravrepository.save(new Ravintola("Ravintola Kalasatama", "lounasravintola", "Kalasatama", 5));
@@ -44,8 +44,8 @@ public class HarjoitustyoApplication {
 			//repository.deleteAll(); //Poistaa kaikki kirjat mikäli niin halutaan
 			
 			// Create users: admin/admin user/user
-			User user1 = new User("user", "$2a$06$3jYRJrg0ghaaypjZ/.g4SethoeA51ph3UD4kZi9oPkeMTpjKU5uo6", "USER");
-			User user2 = new User("admin", "$2a$10$0MMwY.IQqpsVc1jC8u7IJ.2rT8b0Cd3b3sfIBGV2zfgnPGtT4r0.C", "ADMIN");
+			UserCred user1 = new UserCred("user", "$2a$06$3jYRJrg0ghaaypjZ/.g4SethoeA51ph3UD4kZi9oPkeMTpjKU5uo6", "USER");
+			UserCred user2 = new UserCred("admin", "$2a$10$0MMwY.IQqpsVc1jC8u7IJ.2rT8b0Cd3b3sfIBGV2zfgnPGtT4r0.C", "ADMIN");
 			urepository.save(user1);
 			urepository.save(user2);
 			
