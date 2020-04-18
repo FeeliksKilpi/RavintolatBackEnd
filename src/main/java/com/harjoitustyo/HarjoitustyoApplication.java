@@ -29,26 +29,27 @@ public class HarjoitustyoApplication {
 	public CommandLineRunner ruokasuosikit(RuokaRepository rrepository, RavintolaRepository ravrepository, UserCredRepository urepository) {
 		return (args) -> {
 			
-			urepository.deleteAll();
-			ravrepository.save(new Ravintola("Ravintola Kalasatama", "lounasravintola", "Kalasatama", 5));
+		/*	urepository.deleteAll(); */
+		/*	ravrepository.save(new Ravintola("Ravintola Kalasatama", "lounasravintola", "Kalasatama", 5));
 			ravrepository.save(new Ravintola("Have a Java", "kahvila", "Pasila", 2));
-			ravrepository.save(new Ravintola("Jätkäbaari", "baari", "Jätkäsaari", 3));
+			ravrepository.save(new Ravintola("Jätkäbaari", "baari", "Jätkäsaari", 3)); */
 			
 			System.out.println(ravrepository.findAll());
 			
 			log.info("save a couple of foods"); //logger tuottaa lokia ohjelman toiminnasta
-			urepository.deleteAll();
+		/*	urepository.deleteAll();
 			rrepository.save(new Ruoka("Savulohisalaatti", "Merenelävät", "M, L, G", 8.90, ravrepository.findByRavintolaNimi("Ravintola Kalasatama").get(0)));
 			rrepository.save(new Ruoka("Chorizoa ja Manchego-juustoa", "Liha", "L, M", 9.90, ravrepository.findByRavintolaNimi("Ravintola Kalasatama").get(0)));
 			rrepository.save(new Ruoka("Paella", "Merenelävät", "-", 7.90, ravrepository.findByRavintolaNimi("Jätkäbaari").get(0)));
 			rrepository.save(new Ruoka("Paistettua turskaa", "Merenelävät", "-", 6.90, ravrepository.findByRavintolaNimi("Jätkäbaari").get(0)));
 			rrepository.save(new Ruoka("Soijatortilla", "Vegaani", "G", 4.90, ravrepository.findByRavintolaNimi("Ravintola Kalasatama").get(0)));
-			rrepository.save(new Ruoka("Berliininmunkki", "Jälkiruoka", "M", 1.50, ravrepository.findByRavintolaNimi("Have a Java").get(0)));
+			rrepository.save(new Ruoka("Berliininmunkki", "Jälkiruoka", "M", 1.50, ravrepository.findByRavintolaNimi("Have a Java").get(0))); */
 			//repository.deleteAll(); //Poistaa kaikki kirjat mikäli niin halutaan
 			
 			// Create users: admin/admin user/user
 			UserCred user1 = new UserCred("user", "$2a$06$3jYRJrg0ghaaypjZ/.g4SethoeA51ph3UD4kZi9oPkeMTpjKU5uo6", "USER");
 			UserCred user2 = new UserCred("admin", "$2a$10$0MMwY.IQqpsVc1jC8u7IJ.2rT8b0Cd3b3sfIBGV2zfgnPGtT4r0.C", "ADMIN");
+			
 			urepository.deleteAll();
 			urepository.save(user1);
 			urepository.save(user2);
